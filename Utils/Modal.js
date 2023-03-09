@@ -14,8 +14,7 @@ function Modal({
 
   // close the modal on click outside
   useEffect(() => {
-    const clickHandler = ({ target }) => {
-      if (!show || modalContent.current.contains(target)) return;
+    const clickHandler = () => {
       handleClose();
     };
     document.addEventListener('click', clickHandler);
