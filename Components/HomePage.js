@@ -40,16 +40,39 @@ export default function HomePage() {
             </a>
         </div>
         </div>
-        <div className="relative mt-16 h-80 lg:mt-8">
+        <div className="relative mt-16 h-80 lg:mt-8 blur-sm">
         {/* <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/6zbs6FgBrnDGzxiGio" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/art-abstract-pixels-6zbs6FgBrnDGzxiGio">via GIPHY</a></p> */}
-        <img
+        {/* <img
             className="absolute top-0 left-0 w-[40rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
             src="https://images.unsplash.com/photo-1597589827317-4c6d6e0a90bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
             //src="https://images.unsplash.com/photo-1590732488817-d34f0d6237a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
             alt="Picture"
             width={1824}
             height={1080}
-        />
+        /> */}
+        <video
+          autoPlay
+          playsInline
+          defaultmuted="true"
+          muted
+          loop
+          className="absolute top-0 left-0 w-[40rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+          // style={{
+          //   width: "100%",
+          //   height: "100vh",
+          //   top: "0",
+          //   // position: "absolute",
+          //   // zIndex: "-1",
+      
+          // }}
+        >
+          <source
+            src="/orb.mp4"
+            // src="/drippy.mp4"
+            //src="https://finespecdetailing.b-cdn.net/drippy.mp4"
+            type="video/mp4"
+          />
+        </video>
         </div>
     </div>
     </div>
