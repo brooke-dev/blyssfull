@@ -23,7 +23,7 @@ export default function HomePage() {
             Blyssfull Magick
         </h2>
         <h3 className="text-2xl font-bold tracking-tight text-white sm:text-1xl">
-          Start your journey today. <br />Distance Reiki sessions. Card readings. Tarot Readings and much more..
+        Through a range of spiritual practices and techniques, our service can help you overcome any emotional or spiritual blockages that may be preventing you from living the life you want. We work with you to identify the root causes of your struggles and help you find the tools to move forward with clarity and confidence.
         </h3>
         <p className="mt-6 text-lg leading-8 text-gray-300">
             
