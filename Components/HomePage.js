@@ -56,7 +56,7 @@ export default function HomePage() {
           defaultmuted="true"
           muted
           loop
-          className="absolute top-0 left-0 w-[40rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+          className="absolute top-0 left-0 w-[40rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10 h-80v object-cover"
           // style={{
           //   width: "100%",
           //   height: "100vh",
