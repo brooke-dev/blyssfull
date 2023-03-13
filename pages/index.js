@@ -1,10 +1,14 @@
 import Head from 'next/head'
-// import Image from 'next/image'
+import Image from 'next/image'
 import { Inter } from 'next/font/google'
-// import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Home.module.css'
 import HomePage from '@/Components/HomePage'
 import Header from '@/Components/Header'
 import HeroHome from '@/Components/Hero'
+import Testimonials from '@/Components/Testimonials'
+import Features from '@/Components/Features'
+import Newsletter from '@/Components/Email'
+import Footer from '@/Components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -18,7 +22,12 @@ export default function Home() {
       </Head>
       <Header />
       <HeroHome />
-      {/* <main className={styles.main}>
+      <HomePage />
+      <Features />
+      <Testimonials />
+      <Newsletter />
+      <Footer />
+      {/* <main className={styles.main}>  
         <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
@@ -122,7 +131,6 @@ export default function Home() {
           </a>
         </div>
       </main> */}
-      <HomePage />
     </>
   )
 }
