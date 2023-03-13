@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Transition from '../utils/Transition';
+import Transition from '@/Utils/Transition';
 
 
 function Features() {
