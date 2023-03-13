@@ -60,7 +60,7 @@ function HeroHome() {
 
           {/* Hero image */}
           <div>
-            <div className="relative flex justify-center mb-8 bg-fixed h-40v bg-bottom bg-no-repeat" data-aos="zoom-y-out" data-aos-delay="450" style={{backgroundImage: "url(/tarrot.png)"}}>
+            <div className="relative flex justify-center mb-8 bg-fixed h-40v bg-bottom" data-aos="zoom-y-out" data-aos-delay="450" style={{backgroundImage: "url(/tarrot.png)"}}>
               <div className="flex flex-col justify-center">
                 {/* <img className="mx-auto" src="https://images.unsplash.com/photo-1597589827317-4c6d6e0a90bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" width="768" height="400" alt="Hero" /> */}
                 <svg className="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto" width="768" height="400" viewBox="0 0 768 432" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
