@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from '@/Utils/Modal';
 import { useSession } from "next-auth/react"
+import Link from 'next/link';
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
@@ -39,19 +40,19 @@ function HeroHome() {
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16">
             {session ? (
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Welcome <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">{session.user.email}</span></h1>
+            <h1 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Welcome <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">{session.user.email}</span></h1>
             ) : (
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Blyssfull <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Magick</span></h1>
+            <h1 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Blyssfull <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Magick</span></h1>
             )
             }
             <div className="max-w-3xl mx-auto">
               <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">Start your spiritual journey today!</p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
               <div>
-                  <a className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">Book Now</a>
+                  <Link className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="/book">Book Now</Link>
                 </div>
                 <div>
-                  <a className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">Learn more</a>
+                  <Link className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="/learnmore">Learn more</Link>
                 </div>
               </div>
             </div>
@@ -59,7 +60,7 @@ function HeroHome() {
 
           {/* Hero image */}
           <div>
-            <div className="relative flex justify-center mb-8 bg-fixed h-40v bg-bottom" data-aos="zoom-y-out" data-aos-delay="450" style={{backgroundImage: "url(/tarrot.png)"}}>
+            <div className="relative flex justify-center mb-8 bg-fixed h-40v bg-bottom bg-no-repeat" data-aos="zoom-y-out" data-aos-delay="450" style={{backgroundImage: "url(/tarrot.png)"}}>
               <div className="flex flex-col justify-center">
                 {/* <img className="mx-auto" src="https://images.unsplash.com/photo-1597589827317-4c6d6e0a90bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" width="768" height="400" alt="Hero" /> */}
                 <svg className="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto" width="768" height="400" viewBox="0 0 768 432" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
