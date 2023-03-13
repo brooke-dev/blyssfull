@@ -53,7 +53,7 @@ function Features() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">- Amanda</div>
-                    <div className="text-gray-600">Take collaboration to the next level with security and administrative features built for teams.</div>
+                    <div className="text-gray-600">Before my reading I was pretty anxious. I was nervous about what would end up coming up or out, or if it was going to be good or bad. After the cards were pulled she then began to deep dive into each one and the way that each card just really made sense pertaining to my life. I could also listen to her all day because her voice and they way she explains felt like she was engulfing my soul in that moment. And by the end I wasn’t anxious anymore. I felt good, happy that I had some insight on my life and what I really needed to do for myself to step into my power I’ve been so longing for. So if you need that, come see Alyssa for sure. It’s truly enlightening.</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
