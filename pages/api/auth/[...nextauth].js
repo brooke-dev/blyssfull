@@ -6,8 +6,8 @@ import clientPromise from "../../../lib/mongodb"
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   pages: {
-    signIn: "/signin",
-    error: "/error"
+    signIn: "/auth/signin",
+    error: "/auth/error"
   },
   providers: [
     // GithubProvider({
