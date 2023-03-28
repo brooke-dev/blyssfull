@@ -30,7 +30,7 @@ export default function Book() {
             <div class="md:grid md:grid-cols-3 md:gap-6">
               <div class="md:col-span-1">
                 <div class="px-4 sm:px-0">
-                <h2 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4">Book <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-orange-400">Here</span></h2>
+                <h2 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4">Book <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-blue-500">Here</span></h2>
 
                   <p class="mt-1 text-sm text-gray-600">
                     Enter Some Details &
