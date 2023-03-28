@@ -19,8 +19,7 @@ function Pricing() {
             <div className="max-w-3xl mx-auto text-center pt-12 pb-12 md:pb-20">
               <h2 className="h2 mb-4">Our Pricing</h2>
               <p className="text-xl text-gray-600">
-                Experience the transformative power of Reiki with our healing
-                sessions.
+                Experience the transformative powers of our session.
               </p>
             </div>
 
@@ -60,7 +59,7 @@ function Pricing() {
                   </g>
                 </svg>
                 <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">
-                  30 Minute Reiki Session
+                  30 Minute Distance Reiki Session
                 </h4>
                 <p className="text-gray-600 text-center">
                   In a distance, one on one reiki session, we dive into the
@@ -71,7 +70,7 @@ function Pricing() {
                   for reiki to provide to you the most loving healing. Before a
                   30 min session, we briefly discuss why you decided to book
                   with us, what you would like to get out of it & a simple one
-                  card pull (tarot or oracle)💫
+                  card pull (tarot or oracle)
                 </p>
               </div>
               {/* 1st item */}
@@ -125,7 +124,7 @@ function Pricing() {
                   chakra work, etc. Before a session, we talk a bit about why
                   you decided to book, what you would like to get out of our
                   session & discuss any and all healing modalities we’re
-                  comfortable using.✨
+                  comfortable using.
                 </p>
               </div>
 
