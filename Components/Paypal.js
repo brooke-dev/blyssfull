@@ -112,7 +112,7 @@ export default function Paypal({cost, desc}) {
 		<div style={{ maxWidth: "750px", minHeight: "200px" }}>
             <PayPalScriptProvider
                 options={{
-                    "client-id": process.env.PAYPALCLIENTID,
+                    "client-id": "AWWEZ4lJGhoUtEyfTwJ7XWTS4QUrlw9iUvekZHb5GAzAVNFtgR6_Y-NfAaAt0ADM0xRO7_C-ZRioNVFO",
                     components: "buttons",
                     currency: "USD"
                 }}
