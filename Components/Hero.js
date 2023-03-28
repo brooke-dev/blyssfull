@@ -20,9 +20,9 @@ function HeroHome() {
         <svg width="100vw" height="578" viewBox="0 0 1360 578" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="illustration-01">
-              <stop stopColor="#FFF" offset="0%" />
-              <stop stopColor="#EAEAEA" offset="77.402%" />
-              <stop stopColor="#DFDFDF" offset="100%" />
+              <stop stopColor="purple" offset="0%" />
+              <stop stopColor="blue" offset="77.402%" />
+              <stop stopColor="white" offset="100%" />
             </linearGradient>
           </defs>
           <g fill="url(#illustration-01)" fillRule="evenodd">
@@ -40,19 +40,19 @@ function HeroHome() {
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16">
             {session ? (
-            <h1 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Welcome <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">{session.user.email}</span></h1>
+            <h1 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Welcome <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-blue-700">{session.user.email}</span></h1>
             ) : (
-            <h1 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Blyssfull <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Magick</span></h1>
+            <h1 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Blyssfull <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-blue-700">Magick</span></h1>
             )
             }
             <div className="max-w-3xl mx-auto">
               <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">Start your spiritual journey today!</p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
               <div>
-                  <Link className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="/book">Book Now</Link>
+                  <Link className="btn shadow-purple-500/50 text-white bg-purple-700 hover:bg-purple-500 w-full mb-4 sm:w-auto sm:mb-0" href="/book">Book Now</Link>
                 </div>
                 <div>
-                  <Link className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="/learnmore">Learn more</Link>
+                  <Link className="btn shadow-slate-900/50 text-white bg-slate-900 hover:bg-blue-700 w-full sm:w-auto sm:ml-4" href="/learnmore">Learn more</Link>
                 </div>
               </div>
             </div>
@@ -66,19 +66,19 @@ function HeroHome() {
                 <svg className="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto" width="768" height="400" viewBox="0 0 768 432" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                   <defs>
                     <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="hero-ill-a">
-                      <stop stopColor="#FFF" offset="0%" />
-                      <stop stopColor="#EAEAEA" offset="77.402%" />
-                      <stop stopColor="#DFDFDF" offset="100%" />
+                      <stop stopColor="purple" offset="0%" />
+                      <stop stopColor="blue" offset="77.402%" />
+                      <stop stopColor="white" offset="100%" />
                     </linearGradient>
                     <linearGradient x1="50%" y1="0%" x2="50%" y2="99.24%" id="hero-ill-b">
-                      <stop stopColor="#FFF" offset="0%" />
-                      <stop stopColor="#EAEAEA" offset="48.57%" />
-                      <stop stopColor="#DFDFDF" stopOpacity="0" offset="100%" />
+                      <stop stopColor="purple" offset="0%" />
+                      <stop stopColor="blue" offset="48.57%" />
+                      <stop stopColor="white" stopOpacity="0" offset="100%" />
                     </linearGradient>
                     <radialGradient cx="21.152%" cy="86.063%" fx="21.152%" fy="86.063%" r="79.941%" id="hero-ill-e">
-                      <stop stopColor="#4FD1C5" offset="0%" />
-                      <stop stopColor="#81E6D9" offset="25.871%" />
-                      <stop stopColor="#338CF5" offset="100%" />
+                      <stop stopColor="purple" offset="0%" />
+                      <stop stopColor="blue" offset="25.871%" />
+                      <stop stopColor="white" offset="100%" />
                     </radialGradient>
                     <circle id="hero-ill-d" cx="384" cy="216" r="64" />
                   </defs>
