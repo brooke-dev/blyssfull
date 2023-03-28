@@ -7,7 +7,8 @@ export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   pages: {
     signIn: "/auth/signin",
-    error: "/auth/error"
+    error: "/auth/error",
+    newUser: '/auth/newUser' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   providers: [
     // GithubProvider({
