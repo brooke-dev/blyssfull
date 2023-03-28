@@ -22,9 +22,9 @@ function Testimonials() {
               y2="100%"
               id="illustration-02"
             >
-              <stop stopColor="#FFF" offset="0%" />
-              <stop stopColor="#EAEAEA" offset="77.402%" />
-              <stop stopColor="#DFDFDF" offset="100%" />
+              <stop stopColor="purple" offset="0%" />
+              <stop stopColor="blue" offset="77.402%" />
+              <stop stopColor="white" offset="100%" />
             </linearGradient>
           </defs>
           <g
