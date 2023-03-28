@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 //     }, [cost])
 //     debugger;
 //     return (
-//         <PayPalScriptProvider options={{ "client-id": "AWWEZ4lJGhoUtEyfTwJ7XWTS4QUrlw9iUvekZHb5GAzAVNFtgR6_Y-NfAaAt0ADM0xRO7_C-ZRioNVFO" }}>
+//         <PayPalScriptProvider options={{ "client-id": "" }}>
 //             <PayPalButtons style={{ layout: "horizontal" }} 
 //                  createOrder={(data, actions) => {
 //                     return actions.order.create({
@@ -112,7 +112,7 @@ export default function Paypal({cost, desc}) {
 		<div style={{ maxWidth: "750px", minHeight: "200px" }}>
             <PayPalScriptProvider
                 options={{
-                    "client-id": "AWWEZ4lJGhoUtEyfTwJ7XWTS4QUrlw9iUvekZHb5GAzAVNFtgR6_Y-NfAaAt0ADM0xRO7_C-ZRioNVFO",
+                    "client-id": process.env.PAYPALCLIENTID,
                     components: "buttons",
                     currency: "USD"
                 }}
