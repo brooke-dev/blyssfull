@@ -34,7 +34,7 @@ function Pricing() {
                 >
                   <g fill="none" fillRule="evenodd">
                     <rect
-                      className="fill-current text-blue-600"
+                      className="fill-current text-purple-600"
                       width="64"
                       height="64"
                       rx="32"
@@ -58,6 +58,7 @@ function Pricing() {
                     </g>
                   </g>
                 </svg>
+                <h5 className="text-sm font-bold leading-snug tracking-tight mb-1">$55.00</h5>
                 <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">
                   30 Minute Distance Reiki Session
                 </h4>
@@ -82,7 +83,7 @@ function Pricing() {
                 >
                   <g fill="none" fillRule="evenodd">
                     <rect
-                      className="fill-current text-blue-600"
+                      className="fill-current text-purple-700"
                       width="64"
                       height="64"
                       rx="32"
@@ -109,6 +110,7 @@ function Pricing() {
                     </g>
                   </g>
                 </svg>
+                <h5 className="text-sm font-bold leading-snug tracking-tight mb-1"> $111.00</h5>
                 <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">
                   {" "}
                   1 Hour Distance Reiki Sessions
@@ -137,7 +139,7 @@ function Pricing() {
                 >
                   <g fill="none" fillRule="evenodd">
                     <rect
-                      className="fill-current text-blue-600"
+                      className="fill-current text-purple-700"
                       width="64"
                       height="64"
                       rx="32"
@@ -154,6 +156,7 @@ function Pricing() {
                     </g>
                   </g>
                 </svg>
+                <h5 className="text-sm font-bold leading-snug tracking-tight mb-1">$33.00</h5>
                 <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">
                   30 minute Tarot Readings
                 </h4>
@@ -175,7 +178,7 @@ function Pricing() {
                 >
                   <g fill="none" fillRule="evenodd">
                     <rect
-                      className="fill-current text-blue-600"
+                      className="fill-current text-purple-700"
                       width="64"
                       height="64"
                       rx="32"
@@ -205,6 +208,7 @@ function Pricing() {
                     </g>
                   </g>
                 </svg>
+                <h5 className="text-sm font-bold leading-snug tracking-tight mb-1">$33.00</h5>
                 <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">
                   30 minute Oracle Reading
                 </h4>
@@ -225,7 +229,7 @@ function Pricing() {
                 >
                   <g fill="none" fillRule="evenodd">
                     <rect
-                      className="fill-current text-blue-600"
+                      className="fill-current text-purple-700"
                       width="64"
                       height="64"
                       rx="32"
@@ -242,6 +246,7 @@ function Pricing() {
                     </g>
                   </g>
                 </svg>
+                <h5 className="text-sm font-bold leading-snug tracking-tight mb-1">$22.00</h5>
                 <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">
                   15 minute Oracle Reading
                 </h4>
@@ -262,7 +267,7 @@ function Pricing() {
                 >
                   <g fill="none" fillRule="evenodd">
                     <rect
-                      className="fill-current text-blue-600"
+                      className="fill-current text-purple-700"
                       width="64"
                       height="64"
                       rx="32"
@@ -288,6 +293,7 @@ function Pricing() {
                     </g>
                   </g>
                 </svg>
+                <h5 className="text-sm font-bold leading-snug tracking-tight mb-1">$15.00</h5>
                 <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">
                   Intoductory Session
                 </h4>
