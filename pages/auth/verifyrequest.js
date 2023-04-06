@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-export default function verifyrequest() {
+export default function Verifyrequest() {
   const [emailSent, setEmailSent] = useState();
 
   useEffect(() => {

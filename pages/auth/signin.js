@@ -25,7 +25,7 @@ export default function Signin({ csrfToken, providers }) {
       },
     }).then(response => {
       console.log(response);
-      router.push('/auth/verifyrequest/')
+      router.push('/auth/Verifyrequest/')
     }).catch(e => {
       console.log(e);
     });
