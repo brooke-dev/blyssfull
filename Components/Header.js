@@ -1,21 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSession, signIn, signOut } from "next-auth/react"
+import Modal from './Modal.js';
+
+const tabs = [
+  {id: 1, label: 'About Me', value: '/About'},
+  {id: 2, label: 'Pricing', value: '/learnmore'}
+]
 
 
 function Header({isBooking}) {
   const { data: session } = useSession()
-
+  const [isSignedIn, setSignedIn] = useState(false);
   const [top, setTop] = useState(true);
+  const [hamburgerClick, setHamburgerClick] = useState(false);
+
+  const handleReset = () => {
+    setHamburgerClick(false);
+  }
 
   // detect whether user has scrolled the page down by 10px 
   useEffect(() => {
+    session ? setSignedIn(true) : setSignedIn(false);
     const scrollHandler = () => {
       window.pageYOffset > 10 ? setTop(false) : setTop(true)
     };
     window.addEventListener('scroll', scrollHandler);
     return () => window.removeEventListener('scroll', scrollHandler);
-  }, [top]);  
+  }, [top, session, setSignedIn]);  
+
   if (!session) {
     return (
       <header className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
@@ -40,8 +53,15 @@ function Header({isBooking}) {
             </div>
   
             {/* Site navigation */}
-            <nav className="flex flex-grow">
+            <nav className="flex flex-grow hidden md:block">
               <ul className="flex flex-grow justify-end flex-wrap items-center">
+               {tabs.map(t => {
+                return(
+                  <li key={t.id}>
+                    <Link href={t.value} className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">{t.label}</Link>
+                  </li>
+                )
+               })}
                 <li>
                   <Link href='' onClick={() => signIn()} className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
                 </li>
@@ -54,9 +74,24 @@ function Header({isBooking}) {
                   </Link>
                 </li>
               </ul>
-  
             </nav>
-  
+            {/* Mobile Ham Menu */}
+            <nav className="md:hidden">
+              <button onClick={(() => setHamburgerClick(true))}>
+              {hamburgerClick ? (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              )}
+              </button>
+            </nav>
+
+            <Modal isOpen={hamburgerClick} initiateReset={handleReset} navItems={tabs} signedIn={isSignedIn} />
+
           </div>
         </div>
       </header>
@@ -85,8 +120,15 @@ function Header({isBooking}) {
             </div>
   
             {/* Site navigation */}
-            <nav className="flex flex-grow">
+            <nav className="flex flex-grow hidden md:block">
               <ul className="flex flex-grow justify-end flex-wrap items-center">
+              {tabs.map(t => {
+                return (
+                  <li key={t.id}>
+                    <Link href={t.value} className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">{t.label}</Link>
+                  </li>
+                )
+               })}
                 <li>
                   {isBooking ? null : <Link href='/book' className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Book Now</Link>}
                 </li>
@@ -101,7 +143,24 @@ function Header({isBooking}) {
               </ul>
   
             </nav>
-  
+
+            {/* Mobile Ham Menu */}
+            <nav className="md:hidden">
+              <button onClick={(() => setHamburgerClick(true))}>
+              {hamburgerClick ? (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              )}
+              </button>
+            </nav>
+
+            <Modal isOpen={hamburgerClick} initiateReset={handleReset} navItems={tabs} signedIn={isSignedIn} />
+
           </div>
         </div>
       </header>
