@@ -4,6 +4,7 @@ import { useState } from "react";
 import Paypal from "../Components/Paypal";
 import Header from "@/Components/Header";
 import Footer from "@/Components/Footer";
+
 export default function Book() {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -25,7 +26,7 @@ export default function Book() {
         {/* <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
         Book
         </h1> */}
-        <div class="md:shadow-xl pt-32 pb-12 md:p-80 md:pt-40 md:pb-20 w-50">
+        <div class="md:shadow-xl lg:pt-32 pt-32 pb-12 lg:p-80 md:p-10 md:pt-40 md:pb-20 w-50">
           <div>
             <div class="md:grid md:grid-cols-3 md:gap-6">
               <div class="md:col-span-1">
@@ -236,13 +237,13 @@ export default function Book() {
   }
 
   if (status === "unauthenticated") {
-    router.push("/auth/signin/");
+    router.push("/auth/Signin/");
   }
 
   return (
     <>
     <Header isBooking={true}/>
-    <div class="animate-pulse md:shadow-xl pt-32 pb-12 md:p-80 md:pt-40 md:pb-20 w-50">
+    <div class="animate-pulse md:shadow-xl lg:pt-32 pt-32 pb-12 lg:p-80 md:p-10 md:pt-40 md:pb-20 w-50">
       <div>
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
@@ -273,7 +274,9 @@ export default function Book() {
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                  <Paypal cost={price} />
+                  <div className="h-10 mt-10 bg-slate-700 rounded col-span-6 sm:col-span-4"></div>
+                  <div className="h-10 mt-10 bg-slate-700 rounded col-span-6 sm:col-span-4"></div>
+                  <div className="h-10 mt-10 bg-slate-700 rounded col-span-6 sm:col-span-4"></div>
                 </div>
               </div>
             </form>
