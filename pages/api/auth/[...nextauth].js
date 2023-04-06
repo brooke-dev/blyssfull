@@ -8,9 +8,9 @@ mongoose.connect(process.env.MONGODB_URI);
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   pages: {
-    signIn: "/auth/signin",
+    signIn: "/auth/Signin",
     error: "/auth/error",
-    verifyRequest: "/auth/verifyrequest",
+    verifyRequest: "/auth/Verifyrequest",
     newUser: "/auth/newUser", // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   providers: [
