@@ -39,7 +39,7 @@ export default function signin({ csrfToken, providers }) {
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{" "}
               <Link
-                href="/auth/signin"
+                href="/auth/Signin"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 Sign In
