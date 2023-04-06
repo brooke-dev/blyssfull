@@ -8,7 +8,7 @@ import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import { useRouter } from 'next/router'
 
-export default function signin({ csrfToken, providers }) {
+export default function Signin({ csrfToken, providers }) {
   const router = useRouter()
   let [submitDisabled, setSubmitDisabled] = useState(false);
   let [email, setEmail] = useState();
