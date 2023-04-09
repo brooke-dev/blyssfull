@@ -236,7 +236,7 @@ export default function Book() {
   }
 
   if (status === "unauthenticated") {
-    router.push("/auth/signin/");
+    router.push("/auth/Signin/");
   }
 
   return (
