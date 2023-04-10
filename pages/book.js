@@ -32,7 +32,7 @@ export default function Book() {
               <div class="md:col-span-1">
                 <div class="px-4 sm:px-0">
                 <h2 className="break-words text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4">Book <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-blue-500">Here</span></h2>
-
+                  {price ? <h2 className="text-1xl md:text-3xl font-extrabold leading-tighter tracking-tighter mb-4">Price: ${price}</h2> : null}
                   <p class="mt-1 text-sm text-gray-600">
                     Enter Some Details &
                     Select a Service
@@ -217,7 +217,11 @@ export default function Book() {
                       >
                         Save
                       </button> */}
+                      {price ? 
                       <Paypal cost={price} />
+                      :
+                      <Paypal disabled='true' />
+                      }
                     </div>
                   </div>
                 </form>
