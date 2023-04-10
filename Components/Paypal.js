@@ -1,48 +1,4 @@
-// import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useEffect, useState } from "react";
-// export default function Paypal({cost}) {
-//     const [price, setPrice] = useState();
-//     const [costPresent, setCostPresent] = useState(false);
-//     useEffect(() => {
-//         debugger;
-//       if (cost !== undefined) {
-//         setCostPresent(true);
-//       } else {
-//         setCostPresent(false);
-//       }
-//     }, [cost])
-//     debugger;
-//     return (
-//         <PayPalScriptProvider options={{ "client-id": "" }}>
-//             <PayPalButtons style={{ layout: "horizontal" }} 
-//                  createOrder={(data, actions) => {
-//                     return actions.order.create({
-//                         purchase_units: [
-//                             {
-//                                 description: "Services",
-//                                 amount: {
-//                                     value: cost,
-//                                 },
-//                             },
-//                         ],
-//                     });
-//                 }}
-//                 onApprove={(data, actions) => {
-//                     return actions.order.capture().then((details) => {
-//                         const name = details.payer.name.given_name;
-//                         alert(`Transaction completed by ${name}`);
-//                     });
-//                 }}
-//                 disabled={!costPresent}
-//                 onError={err => {
-//                     console.log(err);
-//                     debugger;
-//                 }}
-//             />
-//         </PayPalScriptProvider>
-//     );
-// }
-
 import {
     PayPalScriptProvider,
     PayPalButtons,
@@ -53,9 +9,14 @@ import {
 //const amount = "2";
 const currency = "USD";
 const style = {"layout":"vertical", "shape":"pill", "color":"white"};
+const InEligibleError = ({ text }) => (
+	<h3 style={{ color: "#dc3545", textTransform: "capitalize" }}>
+		{text || "The component is ineligible to render"}
+	</h3>
+);
 
 // Custom component to wrap the PayPalButtons and handle currency changes
-const ButtonWrapper = ({ currency, showSpinner, amount, desc }) => {
+const ButtonWrapper = ({ currency, showSpinner, amount, desc, disabled }) => {
     // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
     // This is the main reason to wrap the PayPalButtons in a new component
     const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
@@ -75,10 +36,13 @@ const ButtonWrapper = ({ currency, showSpinner, amount, desc }) => {
             { (showSpinner && isPending) && <div className="spinner" /> }
             <PayPalButtons
                 style={style}
-                disabled={false}
+                disabled={disabled}
                 forceReRender={[amount, currency, style]}
                 fundingSource={undefined}
                 createOrder={(data, actions) => {
+                    if (disabled) {
+                        return actions.disabled();
+                    }
                     return actions.order
                         .create({
                             purchase_units: [
@@ -97,17 +61,23 @@ const ButtonWrapper = ({ currency, showSpinner, amount, desc }) => {
                         });
                 }}
                 onApprove={function (data, actions) {
-                    return actions.order.capture().then(function () {
+                    if (disabled) {
+                        return actions.disabled()
+                    }
+                    return actions.order.capture().then(function (data) {
                         // Your code here after capture the order
+                        debugger;
                         
                     });
                 }}
-            />
+            >
+                <InEligibleError text="You are not eligible to pay with Venmo." />
+            </PayPalButtons>
         </>
     );
 }
 
-export default function Paypal({cost, desc}) {
+export default function Paypal({cost, desc, disabled}) {
 	return (
 		<div style={{ maxWidth: "750px", minHeight: "200px" }}>
             <PayPalScriptProvider
@@ -122,6 +92,7 @@ export default function Paypal({cost, desc}) {
                     showSpinner={false}
                     amount={cost}
                     desc={desc}
+                    disabled={disabled}
                 />
 			</PayPalScriptProvider>
 		</div>
