@@ -113,17 +113,18 @@ export default function Modal({ isOpen, initiateReset, navItems, signedIn }) {
                           Profile
                         </button>
                       </Link>
-                      <button
-                        type="button"
-                        className="mt-3 inline-flex w-full justify-center rounded-md bg-purple-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 sm:ml-3 sm:w-auto"
-                        onClick={() => {
-                          signOut();
-                          setOpen(false);
-                          reset();
-                        }}
-                      >
-                        Sign Out
-                      </button>
+                      <Link href='/api/auth/signout' >
+                        <button
+                          type="button"
+                          className="mt-3 inline-flex w-full justify-center rounded-md bg-purple-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 sm:ml-3 sm:w-auto"
+                          onClick={() => {
+                            setOpen(false);
+                            reset();
+                          }}
+                        >
+                          Sign Out
+                        </button>
+                      </Link>
                     </>
                   ) : (
                     <button
