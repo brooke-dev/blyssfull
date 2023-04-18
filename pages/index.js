@@ -10,15 +10,15 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export default function Home() {
-  // const { data: session, status, user  } = useSession();
-  // const router = useRouter();
+  const { data: session } = useSession();
+  const router = useRouter();
 
-  // if (session?.newUser) {
-  //   router.push('/auth/newUser')
-  // }
+  if (session?.newUser === true) {
+    router.push('/auth/newUser/')
+  }
 
   return (
-    <>
+    <div className="bg-violet-300">
       <Head>
         <title>Blyssfull Magick</title>
         <meta name="description" content="Start your journey today" />
@@ -32,6 +32,6 @@ export default function Home() {
       <Testimonials />
       <Newsletter />
       <Footer />
-    </>
+    </div>
   )
 }
