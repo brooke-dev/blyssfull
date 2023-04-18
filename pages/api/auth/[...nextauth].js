@@ -5,7 +5,7 @@ import clientPromise from "../../../lib/mongodb";
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI);
 
-export default NextAuth({
+export const authOptions = {
   adapter: MongoDBAdapter(clientPromise),
   pages: {
     signIn: "/auth/Signin",
@@ -26,27 +26,33 @@ export default NextAuth({
   ],
   callbacks: {
     async session({ session, user, account, token }) {
-      console.log(user);
-      let User = mongoose.connection.db
+      //console.log(user);
+      let User = await mongoose.connection.db
         .collection("users")
-        .findOne({ _id: user.id }, (err, user) => {
+        .findOne({ _id: new mongoose.Types.ObjectId(user.id) }, (err, user) => {
           if (err) {
             console.log(err);
             return;
           }
-          console.log("found someone ayoooo");
+          console.log('found user' + user)
         });
 
-      if (User?.newUser) {
-        console.log("logging user >>>>>" + User);
-      } else {
+        console.log(User?.newUser);
+
+      if (User?.newUser == undefined || User?.newUser == true) {
+        console.log("newUser undefined >>>>>" + User.newUser);
         await mongoose.connection.db
           .collection("users")
-          .updateOne({ id: User.id }, { $set: { newUser: true } });
-      }
+          .updateOne({ _id: new mongoose.Types.ObjectId(user.id) }, { $set: { newUser: true } });
+      } 
       session.status = user.status;
+      session.id = user.id;
       session.newUser = user.newUser;
       return session;
     },
   },
-});
+  secret: process.env.NEXTAUTH_SECRET,
+  
+};
+
+export default NextAuth(authOptions);
