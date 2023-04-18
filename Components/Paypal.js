@@ -1,100 +1,77 @@
-import { useEffect, useState } from "react";
-import {
-    PayPalScriptProvider,
-    PayPalButtons,
-    usePayPalScriptReducer
-} from "@paypal/react-paypal-js";
+import React from "react";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useRouter } from "next/router";
 
-// This values are the props in the UI
-//const amount = "2";
-const currency = "USD";
-const style = {"layout":"vertical", "shape":"pill", "color":"white"};
-const InEligibleError = ({ text }) => (
-	<h3 style={{ color: "#dc3545", textTransform: "capitalize" }}>
-		{text || "The component is ineligible to render"}
-	</h3>
-);
+async function saveTransaction(details) {
+  try {
+    const response = await fetch("/api/booking/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(details),
+    });
 
-// Custom component to wrap the PayPalButtons and handle currency changes
-const ButtonWrapper = ({ currency, showSpinner, amount, desc, disabled }) => {
-    // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
-    // This is the main reason to wrap the PayPalButtons in a new component
-    const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+    if (!response.ok) {
+      throw new Error("Failed to save transaction");
+    }
 
-    useEffect(() => {
-        dispatch({
-            type: "resetOptions",
-            value: {
-                ...options,
-                currency: currency,
-            },
-        });
-    }, [currency, showSpinner]);
-
-
-    return (<>
-            { (showSpinner && isPending) && <div className="spinner" /> }
-            <PayPalButtons
-                style={style}
-                disabled={disabled}
-                forceReRender={[amount, currency, style]}
-                fundingSource={undefined}
-                createOrder={(data, actions) => {
-                    if (disabled) {
-                        return actions.disabled();
-                    }
-                    return actions.order
-                        .create({
-                            purchase_units: [
-                                {
-                                    amount: {
-                                        currency_code: currency,
-                                        value: amount,
-                                    },
-                                    description: desc,
-                                },
-                            ],
-                        })
-                        .then((orderId) => {
-                            // Your code here after create the order
-                            return orderId;
-                        });
-                }}
-                onApprove={function (data, actions) {
-                    if (disabled) {
-                        return actions.disabled()
-                    }
-                    return actions.order.capture().then(function (data) {
-                        // Your code here after capture the order
-                        debugger;
-                        
-                    });
-                }}
-            >
-                <InEligibleError text="You are not eligible to pay with Venmo." />
-            </PayPalButtons>
-        </>
-    );
+    const savedTransaction = await response.json();
+    console.log("Transaction saved:", savedTransaction);
+  } catch (error) {
+    console.error("Error saving transaction:", error);
+  }
 }
 
-export default function Paypal({cost, desc, disabled}) {
-	return (
-		<div style={{ maxWidth: "750px", minHeight: "200px" }}>
-            <PayPalScriptProvider
-                options={{
-                    "client-id": "AWWEZ4lJGhoUtEyfTwJ7XWTS4QUrlw9iUvekZHb5GAzAVNFtgR6_Y-NfAaAt0ADM0xRO7_C-ZRioNVFO",
-                    components: "buttons",
-                    currency: "USD"
-                }}
-            >
-				<ButtonWrapper
-                    currency={currency}
-                    showSpinner={false}
-                    amount={cost}
-                    desc={desc}
-                    disabled={disabled}
-                />
-			</PayPalScriptProvider>
-		</div>
-	);
-}
+const Paypal = ({ cost, isDisabled }) => {
+  const CLIENT_ID =
+    "AWWEZ4lJGhoUtEyfTwJ7XWTS4QUrlw9iUvekZHb5GAzAVNFtgR6_Y-NfAaAt0ADM0xRO7_C-ZRioNVFO";
+  const createOrder = (data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: cost,
+          },
+        },
+      ],
+    });
+  };
+
+  let handleClick = () => {
+    debugger;
+  }
+
+  const onApprove = (data, actions) => {
+    return actions.order.capture().then((details) => {
+      saveTransaction(details);
+      console.log("Payment Approved:", details);
+    });
+  };
+
+  const onError = (error) => {
+    console.error("Payment Error:", error);
+  };
+
+  return (
+    <div style={{ position: "relative" }}>
+      <PayPalScriptProvider options={{ "client-id": CLIENT_ID }}>
+        <PayPalButtons
+          style={{
+            layout: "horizontal",
+            color: "blue",
+            shape: "pill",
+            label: "pay",
+          }}
+          onClick={handleClick}
+          createOrder={createOrder}
+          onApprove={onApprove}
+          onError={onError}
+          disabled={isDisabled}
+        />
+      </PayPalScriptProvider>
+    </div>
+  );
+};
+
+export default Paypal;
