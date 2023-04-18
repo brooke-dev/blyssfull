@@ -55,7 +55,7 @@ export default function About() {
                 </span>
               </h1>
 
-              <div className="max-w-3xl mx-auto flex flex-row space-x-8">
+              <div className="max-w-3xl mx-auto flex flex-col">
                 <p
                   className="text-xl text-gray-600 mb-8 basis-1/2"
                   data-aos="zoom-y-out"
@@ -78,12 +78,11 @@ export default function About() {
                   divine connection we all share. Come as you are & leave the
                   shame at the door. All of you is welcome here.
                 </p>
-                <div className="basis-1/2">
                   <div
-                    className="relative flex justify-center mb-8 bg-fixed h-80v bg-bottom"
+                    className="relative flex flex-col flex-wrap content-center justify-center mb-4 bg-fixed h-60v bg-bottom"
                     data-aos="zoom-y-out"
                     data-aos-delay="450"
-                    style={{ backgroundImage: "url(/alyssaStanding.png)" }}
+                    style={{ backgroundImage: "url(/alyssaStanding.png)", backgroundSize: "contain", backgroundRepeat: 'no-repeat' }}
                   >
                     <div className="flex flex-col justify-center">
                       {/* <img className="mx-auto" src="https://images.unsplash.com/photo-1597589827317-4c6d6e0a90bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" width="768" height="400" alt="Hero" /> */}
@@ -115,7 +114,6 @@ export default function About() {
                         </g>
                       </g>
                     </svg> */}
-                    </div>
                   </div>
                 </div>
               </div>
