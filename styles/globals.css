@@ -118,6 +118,8 @@
   transition-property: transform, opacity;
 }
 
+.react-datepicker-popper {  z-index: 200 !important; }
+
 /* 
 :root {
   --max-width: 1100px;
