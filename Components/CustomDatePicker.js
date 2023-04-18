@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { isPast, isMonday, isWednesday, setHours, setMinutes } from 'date-fns';
-
 import 'react-datepicker/dist/react-datepicker.css';
 
 const CustomDatePicker = ({ onChange }) => {
@@ -21,14 +20,27 @@ const CustomDatePicker = ({ onChange }) => {
   };
 
   const handleDateChange = (date) => {
-    setStartDate(date);
-    onChange(date);
+    if (date) {
+      // Check if there's a time present
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+  
+      // If hours and minutes are both not 0, consider time present
+      if (hours !== 0 || minutes !== 0) {
+        setStartDate(date);
+        onChange(date);
+      } else {
+        setStartDate(null);
+      }
+    } else {
+        setStartDate(null);
+    }
   };
 
   return (
     <DatePicker
       required
-      className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 z-200"
       selected={startDate}
       onChange={handleDateChange}
       showTimeSelect
