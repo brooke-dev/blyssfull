@@ -1,6 +1,5 @@
 import React from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useRouter } from "next/router";
 
 async function saveTransaction(details) {
   try {
@@ -31,16 +30,13 @@ const Paypal = ({ cost, isDisabled }) => {
       purchase_units: [
         {
           amount: {
+            currency_code: 'USD',
             value: cost,
           },
         },
       ],
     });
   };
-
-  let handleClick = () => {
-    debugger;
-  }
 
   const onApprove = (data, actions) => {
     return actions.order.capture().then((details) => {
@@ -63,7 +59,7 @@ const Paypal = ({ cost, isDisabled }) => {
             shape: "pill",
             label: "pay",
           }}
-          onClick={handleClick}
+          forceReRender={[cost, isDisabled]}
           createOrder={createOrder}
           onApprove={onApprove}
           onError={onError}
