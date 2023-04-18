@@ -3,6 +3,7 @@ import { SessionProvider } from "next-auth/react"
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import AOS from 'aos';
+import '../styles/globals.css'
 
 export default function App({
   Component,
