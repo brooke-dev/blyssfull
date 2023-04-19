@@ -72,9 +72,10 @@ const transactionSchema = new mongoose.Schema({
   payer: payerSchema,
   create_time: Date,
   update_time: Date,
-  links: [linkSchema]
+  links: [linkSchema],
+  date: Date,
+  desc: String,
+  userId: String
 });
 
-const Transaction = mongoose.model('Transaction', transactionSchema);
-
-module.exports = Transaction;
+module.exports = mongoose.models.Transaction || mongoose.model('Transaction', transactionSchema);
