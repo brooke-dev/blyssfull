@@ -20,6 +20,7 @@ export default function Book() {
   };
 
   useEffect(() => {
+    console.log(desc)
     if (selectedDate != null && price != null) {
       setFormValid(false);
     } else {
@@ -29,9 +30,8 @@ export default function Book() {
   
 
   const handleServiceChange = (e) => {
-    e.preventDefault();
     setPrice(e.target.value);
-    setDesc(e.target.label);
+    setDesc(e.target[e.target.selectedIndex].text);
   };
 
   if (authed) {
@@ -136,22 +136,22 @@ export default function Book() {
                                 className="mt-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                               >
                                 <option value=""></option>
-                                <option value="15.00">
+                                <option value="15.00" label="Intoductory Session">
                                   Intoductory Session
                                 </option>
-                                <option value="111.00">
+                                <option value="111.00" label="1 Hour Distance Reiki Session">
                                   1 Hour Distance Reiki Session
                                 </option>
-                                <option value="55.00">
+                                <option value="55.00" label="30 Minute Distance Reiki Session">
                                   30 Minute Distance Reiki Session
                                 </option>
-                                <option value="33.00">
+                                <option value="33.00" label="30 Minute Tarot Reading">
                                   30 Minute Tarot Reading
                                 </option>
-                                <option value="33.00">
+                                <option value="33.00" label="30 Minute Oracle Reading">
                                   30 Minute Oracle Reading
                                 </option>
-                                <option value="22.00">
+                                <option value="22.00" label="15 Minute Oracle Reading">
                                   15 Minute Oracle Reading
                                 </option>
                               </select>
@@ -233,7 +233,7 @@ export default function Book() {
                       
                         </div>
                         <div className="bg-gray-50 mt-5 px-4 py-3 text-right sm:px-6">
-                            <Paypal isDisabled={formValid} cost={price} />
+                            <Paypal isDisabled={formValid} cost={price} date={selectedDate} desc={desc} userId={session.id} />
                         </div>
                       </div>
                     </div>
