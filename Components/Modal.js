@@ -100,17 +100,17 @@ export default function Modal({ isOpen, initiateReset, navItems, signedIn }) {
                   })}
                   {isSignedIn ? (
                     <>
-                      <Link href="/Profile">
+                      <Link href="/booking">
                         <button
                           type="button"
-                          href="/Profile"
+                          href="/booking"
                           className="mt-3 inline-flex w-full justify-center rounded-md bg-purple-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 sm:ml-3 sm:w-auto"
                           onClick={() => {
                             setOpen(false);
                             reset();
                           }}
                         >
-                          Profile
+                          All Bookings
                         </button>
                       </Link>
                       <Link href='/api/auth/signout' >
